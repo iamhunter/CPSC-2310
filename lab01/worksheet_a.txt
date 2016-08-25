@@ -1,0 +1,64 @@
+CPSC 2311 Lab 1
+
+1. Run "./acc_x86". Explain what the simulator is doing in the fetch, decode, execute
+    cycle. (10 points)
+
+	During the fetch cycle, PC is copied into MAR, the opcode field is read from memory,
+	the opcode is placed into IR, and the PC is updated.
+
+	During the decode cycle, the opcode is loaded from the IR. 
+
+	During the execute cycle, the PC is copied to MAR, the address field is read into 		MDR and the PC is updated.  Then, the address is moved to MAR, and data is read 	from memory. Finally the opcode is loaded to ACC
+
+2. You should be using one of the branching instructions in your my_loop.m source code (ex: ble0, bgt0, etc.). At which position in memory (i.e. program counter value) is your branch instruction? (10 points)
+
+My branch instruction is at 29.
+
+
+3. Explain the difference between MDR and MAR. (10 points)
+
+MAR is the address while MDR is the data.
+
+
+4. Run the three versions of the program using acc and record the statistics. (10 points)
+
+source1
+
+	simulation of accumulator machine ends with acc = 0
+	  instructions executed =  98
+	  instruction fetches   = 195
+	  data reads            =  54
+	  data writes           =  22
+
+source2
+
+	simulation of accumulator machine ends with acc = 0
+	  instructions executed =  76
+	  instruction fetches   = 151
+	  data reads            =  43
+	  data writes           =  22
+
+my_loop
+
+	simulation of accumulator machine ends with acc = 1
+	  instructions executed =  96
+	  instruction fetches   = 191
+	  data reads            =  63
+	  data writes           =  22
+
+
+
+
+5. Explain the differences in statistics. (15 points)
+
+All of the programs have the same number of writes.  Source two has the lowest number of reads, fetches, and executes.  
+
+
+
+6. Which version do you think is better and why? (15 points)
+
+source2 is the best program because it has it's branch at the end of the program and that allows it to run quicker than the other programs.
+
+
+7. Fill in the blanks in worksheet_b.txt. (30 points)
+
