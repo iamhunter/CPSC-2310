@@ -1,0 +1,79 @@
+1. What is the address (in hexadecimal) of the first and last instruction in the loop?
+	0x8d1c
+	0x8d5c
+	
+
+2. Is the loop of the "while(condition)-do", "repeat-until(condition)", or "do-while(condition)" form?
+	repeat-until
+
+
+3. Do the values of 'x' increase or decrease?
+	The values of X increase
+
+
+
+4. In the form of "b *ADDRESS", what is the command to set a breakpoint on the line where you can observe the new value of 'y' after it is calcualted? Actually use "print $r0" to check and make sure the register you think is 'y' has been updated and has the correct value.
+
+	b 37
+
+
+
+5. What two gdb commands can you enter so that at each and every step, gdb will print both the decimal and hexadecimal form of the value 'y'?
+ 
+	display /x $pc
+	display /d $r0
+
+6. The loop as written only calculates the value of 'y' for the values of 'x' between 0 and 9. It should calculate the value of 'y' for all values of 'x' between 0 and 10. Why does the loop stop at 9 and what change would fix it?
+
+It only goes to 9 because it subtracts 10 from x and then checks if it is less than 0. 
+A fix would be to change 10 to 11
+
+7. Correct the code in "loop.s", assemble and step through the program again in gdb. Fill in the following table:
+
+register        register                register
+   x               y                       y
+(counter)       (decimal)               (hexadecimal)
+
+   0            _____7_____              0x7
+
+
+   1            _____-1____              0xffffffff
+
+   2            _____-9____              0xfffffff7
+
+   3            _____-17_____              0xffffffef
+
+
+   4            _____-25_____              _____0xffffffe7_____
+
+   5            _____-33_____              _____0xffffffdf_____
+
+   6            _____-41_____              _____0xffffffd7_____
+
+   7            _____-49_____              _____0xffffffcf_____
+
+   8            _____-57_____              _____0xffffffc7_____
+
+   9            _____-65_____              _____0xffffffbf_____
+
+  10            _____-73_____              _____0xffffffb7_____
+  
+
+=====================
+ Octal Dump Questions
+=====================
+
+8. What type of data is in the source file?
+
+	Octal
+
+9. What type of data is in the executable?
+
+	Decimal
+
+BONUS:
+
+10. Use the directory list command (ls -l) to determine the size of your source file (loop.s) and the executable (loop). How do the files compare in size? Which is bigger? In order to get any credit you must also explain why it is bigger.
+
+Loop is much larger because the loop runs through several times in the executable. In the source file, it only goes through once
+
